@@ -1,7 +1,7 @@
 /* Base Styles */
 
 :root {
-    font-size: 10px;
+    font-size: 15px;
 }
 
 *,
@@ -18,6 +18,61 @@ body {
     padding-bottom: 3rem;
 }
 
-img {
-    display: block;
+button {
+    border-color: rgb(167, 167, 167);
+    border-radius: 10%;
+}
+.container {
+    /*get container to the middle of page !responsive!*/
+    width: max-content;
+    margin: 10px auto ;
+}
+.profile-stat-count {
+    font-weight: bold;
+}
+
+/* ====== FLEXBOX ====== */
+.profile {    
+    /*declare the flexbox layout for profile*/
+    height: 400px;
+    width: 850px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image {
+    overflow: hidden; 
+    border: 15px solid darkslategrey;
+    border-radius: 100%;
+}
+
+.profile-user-settings {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.profile-stats > ul {
+    /*change the layout of the stats to be inline 
+    AND fix the spacing*/
+    display: flex;
+    column-gap: 5rem;
+}
+
+/* ====== GRID ====== */
+
+.gallery {
+    display: inline-grid;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; /* Adjust the gap as needed */
+    width: 850px;
+}
+
+.gallery-item {
+    transform: scale(0.5);
 }
