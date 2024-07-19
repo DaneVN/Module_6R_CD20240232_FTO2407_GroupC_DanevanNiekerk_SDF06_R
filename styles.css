@@ -1,41 +1,94 @@
 /* Base Styles */
-
 :root {
-    font-size: 15px;
+    font-size: 20px;
 }
-
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
-}
-
+} 
 body {
     font-family: "Open Sans", Arial, sans-serif;
     min-height: 100vh;
     background-color: #fafafa;
     color: #262626;
     padding-bottom: 3rem;
+    display: block;
+    width: 1000px;
+    margin: 10px auto;
 }
-
-button {
-    border-color: rgb(167, 167, 167);
-    border-radius: 10%;
+img {
+    display: block;
 }
 .container {
     /*get container to the middle of page !responsive!*/
-    width: max-content;
-    margin: 10px auto ;
+    display: block;
+    width: 20%;   
+}
+main {
+    width: 200%;
 }
 .profile-stat-count {
     font-weight: bold;
 }
 
+/* ====== GRID ====== */
+
+.gallery { /*GRID CONTAINER*/
+    width: 200%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto; 
+    gap: 15px;
+}
+.gallery-item { /*GRID ITEM*/
+    display: flex;
+    position: relative;
+    justify-content: center;
+}
+.gallery-image { 
+    /*fit images into grid item/box - Figured it out, Coach :)*/ 
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.gallery-item-comments, .gallery-item-likes {
+    margin: auto 20px;
+}
+/* Change the info/type to reflect reference */
+.gallery-item-info {
+    position: absolute;    
+    color: #f3f3f3;
+    top: 50%;
+}
+ul {
+    list-style-type: none;
+    display: flex;
+    padding: 0%;
+}
+.visually-hidden {
+    visibility: hidden;
+    font-size: 0px;
+}
+.gallery-item-type {
+    color: #f3f3f3;
+    position: absolute;
+    font-size: 180%;
+    top: 5px;
+    left: 70%;
+}
+
+/* Hover behaviour */
+.gallery-item:hover {
+   background-color: #606060;
+   opacity: 70%;
+}
+
+
 /* ====== FLEXBOX ====== */
+
 .profile {    
     /*declare the flexbox layout for profile*/
     height: 400px;
-    width: 850px;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -46,7 +99,7 @@ button {
 .profile-image {
     overflow: hidden; 
     border: 15px solid darkslategrey;
-    border-radius: 100%;
+    border-radius: 100%; 
 }
 
 .profile-user-settings {
@@ -56,23 +109,38 @@ button {
     gap: 10px;
 }
 
+.profile-settings-btn {
+    background-color: transparent;
+    border: none;
+}
+
+.profile-settings-btn {
+    border-color: rgb(167, 167, 167);
+    border-radius: 20%;
+}
+
 .profile-stats > ul {
-    /*change the layout of the stats to be inline 
-    AND fix the spacing*/
-    display: flex;
-    column-gap: 5rem;
+    column-gap: 2rem;
 }
 
-/* ====== GRID ====== */
+/* ====== FOOTER ====== */
 
-.gallery {
-    display: inline-grid;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px; /* Adjust the gap as needed */
-    width: 850px;
-}
+.container > .loader {
+    --borderpx : 10px;
 
-.gallery-item {
-    transform: scale(0.5);
-}
+    width: 100%;
+    margin: 20px auto ;
+    border: var(--borderpx) solid #f3f3f3; 
+    border-top: var(--borderpx) solid #606060;
+    border-left: var(--borderpx) solid #606060;
+    border-right: var(--borderpx) solid #606060;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 0.4s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
